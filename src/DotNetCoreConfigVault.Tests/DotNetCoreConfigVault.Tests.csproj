@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks Condition="'$(DOTNETMULTITARGET)' == 'false'">net5.0</TargetFrameworks>
+    <TargetFrameworks Condition="'$(DOTNETMULTITARGET)' == 'true'">net5.0;net461</TargetFrameworks>
+    <TargetFrameworks Condition="'$(DOTNETMULTITARGET)' == ''">net5.0;net461</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <ProjectGuid>6A29D7B3-E2A6-4D86-9500-383AE14AA367</ProjectGuid>
   </PropertyGroup>
