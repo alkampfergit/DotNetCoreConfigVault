@@ -12,6 +12,8 @@ jobs:
   build:
     name: Build
     runs-on: windows-latest
+    env:
+      DOTNETMULTITARGET: true
     steps:
       - uses: actions/checkout@v2
         with:
@@ -37,4 +39,4 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: ./src/DotNetCoreCryptography.Tests/TestResults/coverage.info 
+          path-to-lcov: ./src/DotNetCoreConfigVault.Tests/TestResults/coverage.net5.0.info 
