@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace DotNetCoreConfigVault.Tests.Client.Concrete
 {
@@ -18,17 +17,7 @@ namespace DotNetCoreConfigVault.Tests.Client.Concrete
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(ConfigString, ConfigInt);
-        }
-
-        public static bool operator ==(SimpleConfiguration left, SimpleConfiguration right)
-        {
-            return EqualityComparer<SimpleConfiguration>.Default.Equals(left, right);
-        }
-
-        public static bool operator !=(SimpleConfiguration left, SimpleConfiguration right)
-        {
-            return !(left == right);
+            return (ConfigString?.GetHashCode() ?? 23) * 17 + this.ConfigInt.GetHashCode();
         }
     }
 }
